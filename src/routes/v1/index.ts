@@ -3,9 +3,8 @@
  * @license Apache-2.0
  */
 
-import { time, timeStamp } from "console";
 import { Router } from "express";
-
+import authRouter from "./auth";
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -16,5 +15,7 @@ router.get("/", (req, res) => {
       timeStamp: new Date().toISOString(),
    });
 });
+
+router.use("/auth", authRouter);
 
 export default router;
